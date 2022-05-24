@@ -1,17 +1,35 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Header></Header>
+    <Tabla :user="user"></Tabla>
+    <Form @agregar-a-tabla="ActualizarTabla"></Form>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Form from './components/Form.vue'
+import Header from './components/Header'
+import Tabla from './components/Tabla.vue'
 
 export default {
   name: 'App',
+  data() {
+    return {
+      user: {
+          headtable: ['Nombre', 'E-mail', 'Dni', 'Curso'],
+          forms: [] 
+      },
+    }
+  },
+  methods:{
+    ActualizarTabla(obj){
+      this.user.forms.push(obj)
+    }
+  },
   components: {
-    HelloWorld
+    Header,
+    Form,
+    Tabla
   }
 }
 </script>
@@ -23,6 +41,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
