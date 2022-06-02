@@ -1,7 +1,7 @@
 <template>
   <div class="Header">
-    <div class="bg-lime-300 text-white w-full p-4 h-32 mb-2">
-        <div class="flex w-full max-h-32 text-black border-b p-4">
+    <div class="bg-lime-300 text-black w-full p-4 h-32 mb-2">
+        <div class="flex w-full border-b p-2">
             <div class="flex flex-col w-full hidden md:flex items-start justify-center pr-4">
                 <h2 class="text-2xl">{{ titulo }}</h2>
                 <a class="text-xl"><strong></strong>{{ entrega }}</a>
@@ -21,7 +21,7 @@ export default {
   data() {
       return {
         titulo: 'Angel Nicolas Jimenez',
-        entrega: 'Formularios con VueJs CLI'
+        entrega: 'Formularios con VueJs CLI + Vuex y Vue-Router'
       }
   }
   

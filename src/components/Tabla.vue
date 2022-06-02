@@ -1,22 +1,26 @@
 <template>
     <div>
+        <H1 class="text-3xl mt-4 mb-4 font-bold">Tabla</H1>
         <div class="w-full mt-8 mb-8">
             <div>
                 <table class="w-full table-auto text-xl">
                     <thead class="h-full bg-black text-white p-8">
                         <tr>
-                            <th v-for="(head, i) of user.headtable" :key="i" scope="col">{{head}}</th>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Dni</th>
+                            <th>Curso</th>
                         </tr>
                     </thead>
 
                     <!-- Formulario en Tabla -->
 
                     <tbody class="flex-inline text-xl">
-                        <tr v-for="(form, index) of user.forms" :key="index">
-                            <td>{{ form[index].nombre }}</td>
-                            <td>{{ form[index].email }}</td>
-                            <td>{{ form[index].dni }}</td>
-                            <td>{{ form[index].curso }}</td>
+                        <tr v-for="(user, i) of getTabla" :key="i">
+                            <td>{{ user.nombre }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.dni }}</td>
+                            <td>{{ user.curso }}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -26,16 +30,13 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
+
 export default {
     name: 'Tabla',
-    props: {
-        user:{
-            type: Object,
-            required: true
-        }
-    },
-    methods: {
-      
+    computed:{
+        ...mapGetters(['getTabla'])
     }
 }
 </script>

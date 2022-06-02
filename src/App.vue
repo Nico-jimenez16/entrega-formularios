@@ -1,38 +1,32 @@
 <template>
   <div id="app">
     <Header></Header>
-    <Tabla :user="user"></Tabla>
-    <Form @agregar-a-tabla="ActualizarTabla"></Form>
+    <nav class="flex justify-start p-2 border-b">
+      <router-link class="font-bold text-xl mr-2" to="/">Home</router-link> |
+      <router-link class="font-bold text-xl ml-2" to="/tabla">Tabla</router-link>
+    </nav>
+    <router-view/>
   </div>
 </template>
 
 <script>
-import Form from './components/Form.vue'
-import Header from './components/Header'
-import Tabla from './components/Tabla.vue'
+import Header from './components/Header.vue'
+
 
 export default {
-  name: 'App',
+  name: 'app',
   data() {
     return {
-      user: {
-          headtable: ['Nombre', 'E-mail', 'Dni', 'Curso'],
-          forms: [] 
-      },
+      
     }
   },
-  methods:{
-    ActualizarTabla(obj){
-      this.user.forms.push(obj)
-    }
-  },
-  components: {
-    Header,
-    Form,
-    Tabla
+  components:{
+    Header
   }
 }
+
 </script>
+
 
 <style>
 #app {
@@ -41,5 +35,14 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
